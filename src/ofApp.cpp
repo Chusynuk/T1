@@ -7,7 +7,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    stem0 = ofPoint( 300, 100);
+    stem0 = ofPoint( 500, 300);
     stem1 = ofPoint( 300, 270);
     stem2 = ofPoint( 300, 300);
     stem3 = ofPoint( 300, 400);
@@ -17,22 +17,41 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofBackground(255, 255, 255);
-    ofSetColor(0, 0, 0);
+    //ofNoFill();
+//    ofBackground(0, 0, 0);
+//    ofSetColor(90, 130, 200);
+//
+//
+//
+//    ofDrawCircle(stem0, 80);
+//    ofSetLineWidth(7);
+//    ofDrawLine(stem0 , stem3);
+//    ofDrawTriangle(stem1, stem2, leftLeaf);
+//    ofDrawTriangle(stem1, stem2, rightLeaf);
+//
+//    ofPushMatrix();
+//    ofTranslate(stem0);
+//
+//    float angle = ofGetElapsedTimef() * 10;
+//    ofRotateDeg(angle);
+//    int petals = 15;
+//    for (int i = 0; i<petals; i++) {
+//        ofRotateDeg(360.0 / petals);
+//
+//        ofPoint p1 (0, 20);
+//        ofPoint p2 (80, 0);
+//        ofDrawTriangle(p1, -p1, p2);
+//    }
+//
+//    ofPopMatrix();
+    float time = ofGetElapsedTimef();
     
+    float value = sin(time * M_TWO_PI * 2);
     
-    ofSetCircleResolution(40);
-    ofDrawCircle(stem0, 40);
-    ofSetLineWidth(7);
-    ofDrawLine(stem0 , stem3);
-    ofDrawTriangle(stem1, stem2, leftLeaf);
-    ofDrawTriangle(stem1, stem2, rightLeaf);
+    float v = ofMap(value, -1, 1, 0, 255);
     
-    ofPushMatrix();
-    
-    ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-    ofDrawCircle(0, 0, 100);
-    ofPopMatrix();
+    ofBackground(v, v, v);
+  
 
 }
 
